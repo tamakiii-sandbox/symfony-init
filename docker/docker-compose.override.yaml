@@ -1,17 +1,5 @@
 services:
-  php81:
-    volumes:
-      - app:/app
-
-  php74:
-    volumes:
-      - app:/app
-
-  php72:
-    volumes:
-      - app:/app
-
-  php71:
+  php:
     volumes:
       - app:/app
 

@@ -1,29 +1,10 @@
 version: "3.9"
 services:
-  php81:
+  php:
     build:
-      context: docker/php81
-    working_dir: /app
-    volumes:
-      - .:/app:${MOUNT_TYPE:-delegated}
-
-  php74:
-    build:
-      context: docker/php74
-    working_dir: /app
-    volumes:
-      - .:/app:${MOUNT_TYPE:-delegated}
-
-  php72:
-    build:
-      context: docker/php72
-    working_dir: /app
-    volumes:
-      - .:/app:${MOUNT_TYPE:-delegated}
-
-  php71:
-    build:
-      context: docker/php71
+      context: docker/php
+      args:
+        VERSION: ${VERSION:-81}
     working_dir: /app
     volumes:
       - .:/app:${MOUNT_TYPE:-delegated}

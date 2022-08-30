@@ -1,5 +1,7 @@
 .PHONY: help install dependency build
 
+VERSION := 81
+
 help:
 	@cat $(firstword $(MAKEFILE_LIST))
 
@@ -15,7 +17,7 @@ dependency:
 	type mutagen-compose
 
 build:
-	mutagen-compose build
+	mutagen-compose build --build-arg VERSION=$(VERSION)
 
 
 docker-compose.override.yaml: | docker/docker-compose.override.yaml
