@@ -14,6 +14,13 @@ services:
     volumes:
       - .:/app:${MOUNT_TYPE:-delegated}
 
+  php72:
+    build:
+      context: docker/php72
+    working_dir: /app
+    volumes:
+      - .:/app:${MOUNT_TYPE:-delegated}
+
   php71:
     build:
       context: docker/php71

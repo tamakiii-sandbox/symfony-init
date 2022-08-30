@@ -7,6 +7,10 @@ services:
     volumes:
       - app:/app
 
+  php72:
+    volumes:
+      - app:/app
+
   php71:
     volumes:
       - app:/app
