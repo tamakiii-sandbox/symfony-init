@@ -1,5 +1,13 @@
 services:
-  php:
+  php82:
+    volumes:
+      - app:/app
+
+  php74:
+    volumes:
+      - app:/app
+
+  php71:
     volumes:
       - app:/app
 
