@@ -20,7 +20,8 @@ RUN yum update -y && \
       which \
       less \
       make \
-      git
+      git \
+      unzip
 
 RUN alternatives --install /usr/bin/php php /usr/bin/php81 1
 
