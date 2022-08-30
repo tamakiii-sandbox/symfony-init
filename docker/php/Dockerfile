@@ -30,5 +30,15 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
     php composer-setup.php --install-dir=/usr/bin --filename=composer && \
     php -r "unlink('composer-setup.php');"
 
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
+    php -r "if (hash_file('sha384', 'composer-setup.php') === '55ce33d7678c5a611085589f1f3ddf8b3c52d662cd01d4ba75c0ee0459970c2200a51f492d557530c71c15d8dba01eae') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" && \
+    mkdir -p /usr/local/cellar/composer/2.2.9/bin && \
+    php composer-setup.php --install-dir=/usr/local/cellar/composer/2.2.9/bin --version=2.2.9 --filename=composer && \
+    php -r "unlink('composer-setup.php');"
+
 RUN curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.rpm.sh' | bash && \
     yum install -y symfony-cli
+
+RUN git config --global user.email "tamakiii@users.noreply.github.com" && \
+    git config --global user.name "tamakiii" && \
+    composer config --global --no-plugins allow-plugins.symfony/flex true
